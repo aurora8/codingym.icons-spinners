@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div class="toolbar">
+      <img alt="codingym logo" height="70" src="./assets/logo-text-color.png" />
+    </div>
+
     <ui-spinner color="red" />
     <ui-spinner color="steelblue" size="sm" />
     <ui-spinner color="crimson" size="md" />
@@ -9,7 +12,7 @@
 
     <ui-rings-spinner size="70" />
 
-    <ui-tail-spinner></ui-tail-spinner>
+    <ui-tail-spinner />
 
     <ui-oval-spinner />
 
@@ -20,68 +23,90 @@
 </template>
 
 <script>
-import Spinner from './components/spinner.vue'
-import RingsSpinner from './components/rings-spinner'
-import TailSpinner from './components/tail-spinner'
-import OvalSpinner from './components/oval-spinner'
-import Icon from './components/icon'
+import Spinner from "./components/spinner.vue";
+import RingsSpinner from "./components/rings-spinner";
+import TailSpinner from "./components/tail-spinner";
+import OvalSpinner from "./components/oval-spinner";
+import Icon from "./components/icon";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    'ui-spinner': Spinner,
-    'ui-rings-spinner': RingsSpinner,
-    'ui-tail-spinner': TailSpinner,
-    'ui-oval-spinner': OvalSpinner,
-    'ui-icon': Icon
+    "ui-spinner": Spinner,
+    "ui-rings-spinner": RingsSpinner,
+    "ui-tail-spinner": TailSpinner,
+    "ui-oval-spinner": OvalSpinner,
+    "ui-icon": Icon
   }
-}
+};
 </script>
 
 <style lang="stylus">
-@import url("../node_modules/line-awesome/dist/line-awesome/css/line-awesome.css")
-@import "../node_modules/material-icons/iconfont/material-icons.css"
+@import url('../node_modules/line-awesome/dist/line-awesome/css/line-awesome.css');
+@import '../node_modules/material-icons/iconfont/material-icons.css';
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body, html {
+  margin: 0;
 }
 
-.ui-spinner
-  vertical-align: middle
+.toolbar {
+  display: block;
+  width: 100%;
+  background: #eee;
+  padding: 5px 10px;
+}
 
-.ui-spinner-mat
-  animation: ui-spin 2s linear infinite
-  transform-origin: center center
-  .path
-    stroke-dasharray: 1, 200
-    stroke-dashoffset: 0
-    animation: ui-mat-dash 1.5s ease-in-out infinite
+.ui-spinner {
+  vertical-align: middle;
+}
 
-@keyframes ui-spin
-  0%
-    transform: rotate3d(0, 0, 1, 0deg)
-  25%
-    transform: rotate3d(0, 0, 1, 90deg)
-  50%
-    transform: rotate3d(0, 0, 1, 180deg)
-  75%
-    transform: rotate3d(0, 0, 1, 270deg)
-  100%
-    transform: rotate3d(0, 0, 1, 359deg)
+.ui-spinner-mat {
+  animation: ui-spin 2s linear infinite;
+  transform-origin: center center;
 
-@keyframes ui-mat-dash
-  0%
-    stroke-dasharray: 1, 200
-    stroke-dashoffset: 0
-  50%
-    stroke-dasharray: 89, 200
-    stroke-dashoffset: -35px
-  100%
-    stroke-dasharray: 89, 200
-    stroke-dashoffset: -124px
+  .path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    animation: ui-mat-dash 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes ui-spin {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+
+  25% {
+    transform: rotate3d(0, 0, 1, 90deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 0, 1, 180deg);
+  }
+
+  75% {
+    transform: rotate3d(0, 0, 1, 270deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 359deg);
+  }
+}
+
+@keyframes ui-mat-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
 </style>
